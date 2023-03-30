@@ -1,3 +1,3 @@
-module github.com/Vany-H/go-logger-color
+module github.com/Vany-H/logger
 
 go 1.19
