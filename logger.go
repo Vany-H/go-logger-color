@@ -22,6 +22,20 @@ func Log(message string, param ...any) {
 	log.Print(logMessage)
 }
 
+// Log any what you want in green color with date and pid.
+func LogAny(objs ...any) {
+	mess := ""
+	for i := 0; i < len(objs); i++ {
+		mess = fmt.Sprintln(objs...)
+	}
+	logMessage := fmt.Sprintf(
+		"\x1b[32m[Go] %v –	LOG\x1b[33m:\x1b[32m %v\x1b[0m",
+		os.Getegid(), // Get id of current process
+		mess,
+	)
+	log.Print(logMessage)
+}
+
 // Log current time
 func LogTime() {
 	currentTime := time.Now()
