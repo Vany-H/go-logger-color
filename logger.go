@@ -49,6 +49,16 @@ func Error(err interface{}) {
 		os.Getegid(),
 		err,
 	)
+	log.Print(logMessage)
+}
+
+// Log error messages in red color with date and pid.
+func FatalError(err interface{}) {
+	logMessage := fmt.Sprintf(
+		"\x1b[31m[Go] %v –	\x1b[31mERROR %v\x1b[0m",
+		os.Getegid(),
+		err,
+	)
 	log.Fatal(logMessage)
 }
 
