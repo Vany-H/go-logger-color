@@ -62,3 +62,27 @@ func Warning(message string, param ...any) {
 	)
 	log.Print(logMessage)
 }
+
+// Shields message in green color
+func GreenString(mess any) string {
+	message := fmt.Sprintln(mess)
+	return fmt.Sprintf("\x1b[32m%v\x1b[0m", message)
+}
+
+// Shields message in red color
+func RedString(mess any) string {
+	message := fmt.Sprintln(mess)
+	return fmt.Sprintf("\x1b[31m%v\x1b[0m", message)
+}
+
+// Shields message in yellow color
+func YellowString(mess any) string {
+	message := fmt.Sprintln(mess)
+	return fmt.Sprintf("\x1b[33m%v\x1b[0m", message)
+}
+
+// Shields message in blue color
+func BlueString(mess any) string {
+	message := fmt.Sprintln(mess)
+	return fmt.Sprintf("\x1b[36m%v\x1b[0m", message)
+}
