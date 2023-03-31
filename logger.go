@@ -22,11 +22,25 @@ func Log(message string, param ...any) {
 	log.Print(logMessage)
 }
 
+// Log any what you want in violet color with date and pid.
+func Debug(objs ...any) {
+	mess := ""
+	for i := 0; i < len(objs); i++ {
+		mess = fmt.Sprintln(objs...) + "\x1b[34m"
+	}
+	logMessage := fmt.Sprintf(
+		"\x1b[34m[Go] %v –	LOG\x1b[33m:\x1b[32m %v\x1b[0m",
+		os.Getegid(), // Get id of current process
+		mess,
+	)
+	log.Print(logMessage)
+}
+
 // Log any what you want in green color with date and pid.
 func LogAny(objs ...any) {
 	mess := ""
 	for i := 0; i < len(objs); i++ {
-		mess = fmt.Sprintln(objs...)
+		mess = fmt.Sprintln(objs...) + "\x1b[32m"
 	}
 	logMessage := fmt.Sprintf(
 		"\x1b[32m[Go] %v –	LOG\x1b[33m:\x1b[32m %v\x1b[0m",
