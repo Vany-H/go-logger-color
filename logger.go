@@ -13,7 +13,11 @@ import (
 
 // Log message in green color with date and pid.
 func Log(message string, param ...any) {
-	mess := fmt.Sprintf(message, param...)
+	greenParam := []any{}
+	for i := 0; i < len(param); i++ {
+		greenParam[i] = fmt.Sprintf("\x1b[32m%v\x1b[32m", param[i])
+	}
+	mess := fmt.Sprintf(message, greenParam...)
 	logMessage := fmt.Sprintf(
 		"\x1b[32m[Go] %v –	LOG\x1b[33m:\x1b[32m %v\x1b[0m",
 		os.Getegid(), // Get id of current process
@@ -78,7 +82,11 @@ func FatalError(err interface{}) {
 
 // Log error messages in yellow color with date and pid.
 func Warning(message string, param ...any) {
-	mess := fmt.Sprintf(message, param...)
+	greenParam := []any{}
+	for i := 0; i < len(param); i++ {
+		greenParam[i] = fmt.Sprintf("\x1b[33m%v\x1b[33mm", param[i])
+	}
+	mess := fmt.Sprintf(message, greenParam...)
 	logMessage := fmt.Sprintf(
 		"\x1b[33m[Go] %v –	WARNING %v\x1b[0m",
 		os.Getegid(),
