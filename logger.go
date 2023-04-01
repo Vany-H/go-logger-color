@@ -33,7 +33,7 @@ func Debug(objs ...any) {
 		mess = fmt.Sprintln(objs...) + "\x1b[35m"
 	}
 	logMessage := fmt.Sprintf(
-		"\x1b[35m[Go] %v –	LOG\x1b[33m:\x1b[35m %v\x1b[0m",
+		"\x1b[35m[Go] %v –	DEBUG\x1b[33m:\x1b[35m %v\x1b[0m",
 		os.Getegid(), // Get id of current process
 		mess,
 	)
