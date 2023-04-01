@@ -15,7 +15,7 @@ import (
 func Log(message string, param ...any) {
 	greenParam := []any{}
 	for i := 0; i < len(param); i++ {
-		greenParam[i] = fmt.Sprintf("\x1b[32m%v\x1b[32m", param[i])
+		greenParam = append(greenParam, fmt.Sprintf("\x1b[32m%v\x1b[32m", param[i]))
 	}
 	mess := fmt.Sprintf(message, greenParam...)
 	logMessage := fmt.Sprintf(
@@ -84,7 +84,7 @@ func FatalError(err interface{}) {
 func Warning(message string, param ...any) {
 	greenParam := []any{}
 	for i := 0; i < len(param); i++ {
-		greenParam[i] = fmt.Sprintf("\x1b[33m%v\x1b[33mm", param[i])
+		greenParam = append(greenParam, fmt.Sprintf("\x1b[32m%v\x1b[32m", param[i]))
 	}
 	mess := fmt.Sprintf(message, greenParam...)
 	logMessage := fmt.Sprintf(
